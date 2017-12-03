@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8" />
+<title>First page</title>
+<link
+	href="http://cdn.jsdelivr.net/webjars/bootstrap/3.3.7-1/css/bootstrap.min.css"
+	th:href="@{/webjars/bootstrap/3.3.7-1/css/bootstrap.min.css}"
+	rel="stylesheet" media="screen" />
+<script src="http://cdn.jsdelivr.net/webjars/jquery/3.2.1/jquery.min.js"
+	th:src="@{/webjars/bootstrap/3.2.1/jquery.min.js}"></script>
+</head>
+<body>
+	<div class="container">
+		<div class="row">
+			<div class="col-sm-6">
+				<h2>Product</h2>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-sm-8">
+				<form class="form-horiontal" th:object="${product}" th:action="@{/product}" method="POST">
+					<input type="hidden" th:field="*{id}" />
+				    <input type="hidden" th:field="*{serial}" />
+					<div class="form-group">
+						<label class="col-sm-2 control-label">Name:</label>
+						<div class="col-sm-10">
+							<input type="text" class="form-control" th:field="*{productName}"/>
+						</div>
+					</div>
+					<div class="form-group">
+						<label class="col-sm-2 control-label">Description:</label>
+						<div class="col-sm-10">
+							<input type="text" class="form-control" th:field="*{productDescription}"/>
+						</div>
+					</div>
+					<div class="form-group">
+						<label class="col-sm-2 control-label">Price:</label>
+						<div class="col-sm-10">
+							<input type="text" class="form-control" th:field="*{productPrice}" />
+						</div>
+					</div>
+					<div class="form-group">
+						<label class="col-sm-2 control-label">Url of the image:</label>
+						<div class="col-sm-10">
+							<input type="text" class="form-control" th:field="*{imageUrl}" />
+						</div>
+					</div>
+					<div class="row">
+						<button type="submit" class="btn btn-default">SUBMIT</button>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+</body>
+</html>
